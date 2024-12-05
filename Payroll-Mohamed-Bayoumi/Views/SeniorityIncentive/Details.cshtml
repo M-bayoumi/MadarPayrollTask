@@ -1,0 +1,21 @@
+﻿@model Payroll_Mohamed_Bayoumi.Models.SeniorityIncentive
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-info text-white text-center">
+            <h2>Seniority Incentive Details</h2>
+        </div>
+        <div class="card-body">
+            <dl class="row mt-2">
+                <dt class="col-2 text-start">Incentive Percentage:</dt>
+                <dd class="col-10 text-start">@Model.IncentivePercentage</dd>
+                <dt class="col-2 text-start">Years Of Service:</dt>
+                <dd class="col-10 text-start">@Model.YearsOfService</dd>
+            </dl>
+            <div class="text-center mt-10">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-lg">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary btn-lg ms-2">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

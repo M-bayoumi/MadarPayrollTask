@@ -9,17 +9,23 @@ public class UnitOfWork : IUnitOfWork
     public IDepartmentRepository DepartmentRepository { get; private set; }
     public IEmployeeRepository EmployeeRepository { get; private set; }
     public ISalaryRepository SalaryRepository { get; private set; }
+    public IDepartmentIncentiveRepository DepartmentIncentiveRepository { get; private set; }
+    public ISeniorityIncentiveRepository SeniorityIncentiveRepository { get; private set; }
 
     public UnitOfWork(
         ApplicationDbContext context,
         IDepartmentRepository departmentRepo,
         IEmployeeRepository employeeRepo,
-        ISalaryRepository salaryRepo)
+        ISalaryRepository salaryRepo,
+        IDepartmentIncentiveRepository departmentIncentiveRepo,
+        ISeniorityIncentiveRepository seniorityIncentiveRepo)
     {
         _context = context;
         DepartmentRepository = departmentRepo;
         EmployeeRepository = employeeRepo;
         SalaryRepository = salaryRepo;
+        DepartmentIncentiveRepository = departmentIncentiveRepo;
+        SeniorityIncentiveRepository = seniorityIncentiveRepo;
     }
 
     public async Task<int> CompleteAsync()

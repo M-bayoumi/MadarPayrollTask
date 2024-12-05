@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Payroll_Mohamed_Bayoumi.Context;
-using Payroll_Mohamed_Bayoumi.Enums;
 using Payroll_Mohamed_Bayoumi.Models;
 using Payroll_Mohamed_Bayoumi.Repositories.Abstractions;
 
@@ -50,8 +49,10 @@ public class SalaryRepository : ISalaryRepository
             .Remove(salary);
     }
 
-    public bool IsGradeExist(JobGrade jobGrade)
+    public bool IsGradeExist(Salary salary)
     {
-        return _context.Salaries.Any(x => x.JobGrade == jobGrade);
+        return _context
+            .Salaries
+            .Any(x => x.JobGrade == salary.JobGrade && x.Id != salary.Id);
     }
 }

@@ -43,7 +43,7 @@ public class SalaryController : Controller
     {
         if (ModelState.IsValid)
         {
-            var IsGradeExist = _unitOfWork.SalaryRepository.IsGradeExist(salary.JobGrade);
+            var IsGradeExist = _unitOfWork.SalaryRepository.IsGradeExist(salary);
 
             if (IsGradeExist)
             {
@@ -88,7 +88,7 @@ public class SalaryController : Controller
 
         if (ModelState.IsValid)
         {
-            var IsGradeExist = _unitOfWork.SalaryRepository.IsGradeExist(salary.JobGrade);
+            var IsGradeExist = _unitOfWork.SalaryRepository.IsGradeExist(salary);
 
             if (IsGradeExist)
             {
@@ -140,4 +140,3 @@ public class SalaryController : Controller
         }
     }
 }
-

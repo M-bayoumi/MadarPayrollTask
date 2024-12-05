@@ -1,5 +1,4 @@
-﻿using Payroll_Mohamed_Bayoumi.Enums;
-using Payroll_Mohamed_Bayoumi.Models;
+﻿using Payroll_Mohamed_Bayoumi.Models;
 
 namespace Payroll_Mohamed_Bayoumi.Repositories.Abstractions;
 
@@ -10,5 +9,5 @@ public interface ISalaryRepository
     Task AddAsync(Salary salary);
     void Update(Salary salary);
     void Delete(Salary salary);
-    bool IsGradeExist(JobGrade jobGrade);
+    bool IsGradeExist(Salary salary);
 }

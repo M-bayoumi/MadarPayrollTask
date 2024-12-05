@@ -1,0 +1,34 @@
+﻿@model Payroll_Mohamed_Bayoumi.Models.SeniorityIncentive
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-warning text-white text-center">
+            <h2>Edit Seniority Incentive</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group mb-3">
+                    <label asp-for="IncentivePercentage" class="form-label">Incentive Percentage</label>
+                    <input asp-for="IncentivePercentage" class="form-control" placeholder="Enter incentive percentage" />
+                    <span asp-validation-for="IncentivePercentage" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="YearsOfService" class="form-label">Years Of Service</label>
+                    <input asp-for="YearsOfService" class="form-control" placeholder="Enter years of service" />
+                    <span asp-validation-for="YearsOfService" class="text-danger"></span>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Save Changes" class="btn btn-success btn-lg" />
+                    <a asp-action="Index" class="btn btn-secondary btn-lg ms-2">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

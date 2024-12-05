@@ -20,6 +20,8 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<ISalaryRepository, SalaryRepository>();
+builder.Services.AddScoped<IDepartmentIncentiveRepository, DepartmentIncentiveRepository>();
+builder.Services.AddScoped<ISeniorityIncentiveRepository, SeniorityIncentiveRepository>();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
