@@ -1,0 +1,33 @@
+﻿@model Payroll_Mohamed_Bayoumi.Models.Employee
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-info text-white text-center">
+            <h2>Employee Details</h2>
+        </div>
+        <div class="card-body">
+            <dl class="row mt-2">
+                <dt class="col-2 text-start">Name:</dt>
+                <dd class="col-10 text-start">@Model.Name</dd>
+                <dt class="col-2 text-start">PhoneNumber:</dt>
+                <dd class="col-10 text-start">@Model.PhoneNumber</dd>
+                <dt class="col-2 text-start">Address:</dt>
+                <dd class="col-10 text-start">@Model.Address</dd>
+                <dt class="col-2 text-start">Email:</dt>
+                <dd class="col-10 text-start">@Model.Email</dd>
+                <dt class="col-2 text-start">BirthDate:</dt>
+                <dd class="col-10 text-start">@Model.BirthDate.ToString("dd/MM/yyyy")</dd>
+                <dt class="col-2 text-start">Job Grade:</dt>
+                <dd class="col-10 text-start">@Model.JobGrade</dd>
+                <dt class="col-2 text-start">Department:</dt>
+                <dd class="col-10 text-start">@Model.Department?.Name</dd>
+                <dt class="col-2 text-start">Hiring Date:</dt>
+                <dd class="col-10 text-start">@Model.HiringDate.ToString("dd/MM/yyyy")</dd>
+            </dl>
+            <div class="text-center mt-10">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-lg">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary btn-lg ms-2">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

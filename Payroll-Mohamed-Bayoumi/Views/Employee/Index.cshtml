@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Payroll_Mohamed_Bayoumi.Models.Employee>
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Employees</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="col-3">Name</th>
+                        <th class="col-2">PhoneNumber</th>
+                        <th class="col-2">Address</th>
+                        <th class="col-2">Email</th>
+                        <th class="col-2">Job Grade</th>
+                        <th class="col-2">Department</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <td>@employee.Name</td>
+                            <td>@employee.PhoneNumber</td>
+                            <td>@employee.Address</td>
+                            <td>@employee.Email</td>
+                            <td>@employee.JobGrade</td>
+                            <td>@employee.Department?.Name</td>
+                            <td class="text-center">
+                                <a asp-action="Details" asp-route-id="@employee.Id" class="btn btn-info btn-sm px-4">Details</a>
+                                <a asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-warning btn-sm px-4 ms-2">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-danger btn-sm px-4 ms-2">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="text-center mt-3">
+                <a asp-action="Create" class="btn btn-success btn-lg px-5">Add New Employee</a>
+            </div>
+        </div>
+    </div>
+</div>
