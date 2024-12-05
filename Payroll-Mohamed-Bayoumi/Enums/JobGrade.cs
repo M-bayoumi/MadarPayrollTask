@@ -2,7 +2,7 @@
 
 public enum JobGrade
 {
-    FirstGrade,
+    FirstGrade = 1,
     SecondGrade,
     ThirdGrade
 }

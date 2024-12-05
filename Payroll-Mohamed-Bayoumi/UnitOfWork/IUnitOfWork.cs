@@ -4,7 +4,8 @@ namespace Payroll_Mohamed_Bayoumi.UnitOfWork;
 
 public interface IUnitOfWork
 {
-    IEmployeeRepository EmployeeRepository { get; }
     IDepartmentRepository DepartmentRepository { get; }
+    IEmployeeRepository EmployeeRepository { get; }
+    ISalaryRepository SalaryRepository { get; }
     Task<int> CompleteAsync();
 }

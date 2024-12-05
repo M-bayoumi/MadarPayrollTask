@@ -6,17 +6,20 @@ namespace Payroll_Mohamed_Bayoumi.UnitOfWork;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly ApplicationDbContext _context;
-    public IEmployeeRepository EmployeeRepository { get; private set; }
     public IDepartmentRepository DepartmentRepository { get; private set; }
+    public IEmployeeRepository EmployeeRepository { get; private set; }
+    public ISalaryRepository SalaryRepository { get; private set; }
 
     public UnitOfWork(
         ApplicationDbContext context,
+        IDepartmentRepository departmentRepo,
         IEmployeeRepository employeeRepo,
-        IDepartmentRepository departmentRepo)
+        ISalaryRepository salaryRepo)
     {
         _context = context;
-        EmployeeRepository = employeeRepo;
         DepartmentRepository = departmentRepo;
+        EmployeeRepository = employeeRepo;
+        SalaryRepository = salaryRepo;
     }
 
     public async Task<int> CompleteAsync()

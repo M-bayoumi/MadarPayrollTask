@@ -49,4 +49,3 @@ public class DepartmentRepository : IDepartmentRepository
             .Remove(department);
     }
 }
-

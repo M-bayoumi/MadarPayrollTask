@@ -6,7 +6,6 @@ using Payroll_Mohamed_Bayoumi.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 
@@ -20,6 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<ISalaryRepository, SalaryRepository>();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

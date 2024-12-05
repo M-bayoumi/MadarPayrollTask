@@ -15,3 +15,4 @@ internal sealed class DepartmentConfiguration : IEntityTypeConfiguration<Departm
             .HasForeignKey(x => x.DepartmentId);
     }
 }
+

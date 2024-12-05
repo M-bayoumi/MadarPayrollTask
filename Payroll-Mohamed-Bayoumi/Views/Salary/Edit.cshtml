@@ -1,0 +1,37 @@
+﻿@model Payroll_Mohamed_Bayoumi.Models.Salary
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-warning text-white text-center">
+            <h2>Edit Salary</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit">
+                <div class="form-group mb-3">
+                    <label asp-for="Amount" class="form-label">Salary Amount</label>
+                    <input asp-for="Amount" class="form-control" placeholder="Edit salary amount" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="JobGrade" class="form-label">Job Grade</label>
+                    <select asp-for="JobGrade" class="form-control">
+                        <option value="1">First Grade</option>
+                        <option value="2">Second Grade</option>
+                        <option value="3">Third Grade</option>
+                    </select>
+                    <span asp-validation-for="JobGrade" class="text-danger"></span>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Save" class="btn btn-success btn-lg" />
+                    <a asp-action="Index" class="btn btn-secondary btn-lg ms-2">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
