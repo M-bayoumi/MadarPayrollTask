@@ -10,6 +10,8 @@ public sealed class ApplicationDbContext : DbContext
     public DbSet<SeniorityIncentive> SeniorityIncentives { get; set; }
     public DbSet<DepartmentIncentive> DepartmentIncentives { get; set; }
     public DbSet<AbsencePenalty> AbsencePenalties { get; set; }
+    public DbSet<AttendanceRecord> AttendanceRecords { get; set; }
+
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
       : base(options)

@@ -12,6 +12,8 @@ public class UnitOfWork : IUnitOfWork
     public IDepartmentIncentiveRepository DepartmentIncentiveRepository { get; private set; }
     public ISeniorityIncentiveRepository SeniorityIncentiveRepository { get; private set; }
     public IAbsencePenaltyRepository AbsencePenaltyRepository { get; private set; }
+    public IAttendanceRecordRepository AttendanceRecordRepository { get; private set; }
+
 
 
     public UnitOfWork(
@@ -21,7 +23,8 @@ public class UnitOfWork : IUnitOfWork
         ISalaryRepository salaryRepo,
         IDepartmentIncentiveRepository departmentIncentiveRepo,
         ISeniorityIncentiveRepository seniorityIncentiveRepo,
-        IAbsencePenaltyRepository absencePenaltyRepo)
+        IAbsencePenaltyRepository absencePenaltyRepo,
+        IAttendanceRecordRepository attendanceRecordRepo)
     {
         _context = context;
         DepartmentRepository = departmentRepo;
@@ -30,6 +33,7 @@ public class UnitOfWork : IUnitOfWork
         DepartmentIncentiveRepository = departmentIncentiveRepo;
         SeniorityIncentiveRepository = seniorityIncentiveRepo;
         AbsencePenaltyRepository = absencePenaltyRepo;
+        AttendanceRecordRepository = attendanceRecordRepo;
     }
 
     public async Task<int> CompleteAsync()

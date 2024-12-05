@@ -31,6 +31,8 @@ public class Employee
     [Required(ErrorMessage = "تاريخ التعيين مطلوب")]
     [DataType(DataType.Date)]
     public DateTime HiringDate { get; set; }
+    public List<AttendanceRecord> AttendanceRecords { get; set; } = new List<AttendanceRecord>();
+
     public Employee()
     {
 
