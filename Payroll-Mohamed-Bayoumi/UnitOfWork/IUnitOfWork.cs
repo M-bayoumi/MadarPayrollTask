@@ -9,5 +9,6 @@ public interface IUnitOfWork
     ISalaryRepository SalaryRepository { get; }
     IDepartmentIncentiveRepository DepartmentIncentiveRepository { get; }
     ISeniorityIncentiveRepository SeniorityIncentiveRepository { get; }
+    IAbsencePenaltyRepository AbsencePenaltyRepository { get; }
     Task<int> CompleteAsync();
 }

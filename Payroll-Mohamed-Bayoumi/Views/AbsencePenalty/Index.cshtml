@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Payroll_Mohamed_Bayoumi.Models.AbsencePenalty>
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Absence Penalties</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="table-dark">
+
+                    <tr>
+                        <th class="col-2">Absence Days</th>
+                        <th class="col-4">Penalty Percentage</th>
+                        <th class="text-center">IsBonus</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var absencePenalty in Model)
+                    {
+                        <tr class="col-">
+                            <td>@absencePenalty.AbsenceDays</td>
+                            <td>@absencePenalty.PenaltyPercentage</td>
+                            <td>@absencePenalty.IsBonus</td>
+                            <td class="text-center">
+                                <a asp-action="Details" asp-route-id="@absencePenalty.Id" class="btn btn-info btn-sm px-4">Details</a>
+                                <a asp-action="Edit" asp-route-id="@absencePenalty.Id" class="btn btn-warning btn-sm px-4 ms-2">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@absencePenalty.Id" class="btn btn-danger btn-sm px-4 ms-2">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="text-center mt-3">
+                <a asp-action="Create" class="btn btn-success btn-lg px-5">Add New Department</a>
+            </div>
+        </div>
+    </div>
+</div>

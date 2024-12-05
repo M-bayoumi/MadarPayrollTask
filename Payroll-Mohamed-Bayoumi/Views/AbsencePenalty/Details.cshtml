@@ -1,0 +1,27 @@
+﻿@model Payroll_Mohamed_Bayoumi.Models.AbsencePenalty
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-info text-white text-center">
+            <h2>Absence Penalty Details</h2>
+        </div>
+        <div class="card-body">
+            <dl class="row mt-3">
+                <dt class="col-2 text-start">AbsenceDays:</dt>
+                <dd class="col-10 text-start">@Model.AbsenceDays</dd>
+            </dl>
+            <dl class="row mt-3">
+                <dt class="col-2 text-start">Penalty Percentage:</dt>
+                <dd class="col-10 text-start">@Model.PenaltyPercentage</dd>
+            </dl>
+            <dl class="row mt-3">
+                <dt class="col-2 text-start">IsBonus:</dt>
+                <dd class="col-10 text-start">@Model.IsBonus</dd>
+            </dl>
+            <div class="text-center mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-lg">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary btn-lg ms-2">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
