@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Payroll_Mohamed_Bayoumi.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee Report";
+}
+
+<h2>Employee Report</h2>
+
+<form method="get" action="@Url.Action("Employees")" class="col-2">
+    <label for="departmentId">Filter by Department:</label>
+    <select name="departmentId" id="departmentId" class="form-control">
+        <option value="">All Departments</option>
+        @foreach (var department in ViewBag.Departments)
+        {
+            <option value="@department.Value">
+                @department.Text
+            </option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-primary mt-2">Filter</button>
+</form>
+
+<table class="table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Job Grade</th>
+            <th>Birth Date</th>
+            <th>Hiring Date</th>
+            <th>Department Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.PhoneNumber</td>
+                <td>@employee.Address</td>
+                <td>@employee.Email</td>
+                <td>@employee.JobGrade</td>
+                <td>@employee.BirthDate.ToString("dd/MM/yyyy")</td>
+                <td>@employee.HiringDate.ToString("dd/MM/yyyy")</td>
+                <td>@employee.Department?.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

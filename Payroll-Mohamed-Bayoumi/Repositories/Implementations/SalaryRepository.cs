@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Payroll_Mohamed_Bayoumi.Context;
+using Payroll_Mohamed_Bayoumi.Enums;
 using Payroll_Mohamed_Bayoumi.Models;
 using Payroll_Mohamed_Bayoumi.Repositories.Abstractions;
 
@@ -22,10 +23,17 @@ public class SalaryRepository : ISalaryRepository
     }
 
     public async Task<Salary?> GetByIdAsync(int id)
+
     {
         return await _context
             .Salaries
             .FindAsync(id);
+    }
+    public async Task<Salary?> GetByJobGradeAsync(JobGrade jobGrade)
+    {
+        return await _context
+            .Salaries
+            .FirstOrDefaultAsync(x => x.JobGrade == jobGrade);
     }
 
     public async Task AddAsync(Salary salary)

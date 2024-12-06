@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Payroll_Mohamed_Bayoumi.Context;
+using Payroll_Mohamed_Bayoumi.Enums;
 using Payroll_Mohamed_Bayoumi.Models;
 using Payroll_Mohamed_Bayoumi.Repositories.Abstractions;
 
@@ -29,6 +30,13 @@ public class AttendanceRecordRepository : IAttendanceRecordRepository
                    .Where(x => x.EmployeeId == employeeId)
                    .Include(x => x.Employee)
                    .ToListAsync();
+    }
+    public async Task<AttendanceRecord?> GetByDateAsync(int employeeId, Month month, int year)
+    {
+        return await _context
+                   .AttendanceRecords
+                   .Where(x => x.EmployeeId == employeeId && x.Month == month && x.Year == year)
+                   .FirstOrDefaultAsync();
     }
 
     public async Task<AttendanceRecord?> GetByIdAsync(int id)
@@ -66,5 +74,6 @@ public class AttendanceRecordRepository : IAttendanceRecordRepository
                     && x.Year == attendanceRecord.Year
                     && x.Id != attendanceRecord.Id);
     }
+
 
 }

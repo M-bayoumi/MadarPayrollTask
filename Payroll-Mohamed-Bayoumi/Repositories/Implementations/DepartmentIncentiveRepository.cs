@@ -29,6 +29,12 @@ public class DepartmentIncentiveRepository : IDepartmentIncentiveRepository
             .Include(x => x.Department)
             .FirstOrDefaultAsync(x => x.Id == id);
     }
+    public async Task<DepartmentIncentive?> GetByDepartmentIdAsync(int departmentId)
+    {
+        return await _context
+            .DepartmentIncentives
+            .FirstOrDefaultAsync(x => x.DepartmentId == departmentId);
+    }
 
 
     public async Task AddAsync(DepartmentIncentive departmentIncentive)

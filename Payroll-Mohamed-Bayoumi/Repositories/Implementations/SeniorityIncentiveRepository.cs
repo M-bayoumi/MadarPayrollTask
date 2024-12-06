@@ -27,6 +27,13 @@ public class SeniorityIncentiveRepository : ISeniorityIncentiveRepository
             .SeniorityIncentives
             .FindAsync(id);
     }
+    public async Task<SeniorityIncentive?> GetByYearsOfServiceAsync(int yearsOfService)
+    {
+        return await _context
+            .SeniorityIncentives
+            .OrderByDescending(x => x.YearsOfService)
+            .FirstOrDefaultAsync(x => yearsOfService >= x.YearsOfService);
+    }
 
 
     public async Task AddAsync(SeniorityIncentive seniorityIncentive)
@@ -49,10 +56,10 @@ public class SeniorityIncentiveRepository : ISeniorityIncentiveRepository
             .Remove(seniorityIncentive);
     }
 
-    public bool IsYearsOfServiceExist(int yearsOfService)
+    public bool IsYearsOfServiceExist(SeniorityIncentive seniorityIncentive)
     {
         return _context
             .SeniorityIncentives
-            .Any(x => x.YearsOfService == yearsOfService);
+            .Any(x => x.YearsOfService == seniorityIncentive.YearsOfService && x.Id != seniorityIncentive.Id);
     }
 }

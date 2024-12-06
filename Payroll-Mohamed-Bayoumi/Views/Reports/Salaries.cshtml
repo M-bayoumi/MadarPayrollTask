@@ -1,0 +1,63 @@
+﻿@model List<Payroll_Mohamed_Bayoumi.Models.SalaryReportViewModel>
+
+@{
+    ViewData["Title"] = "Salary Report";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="get" action="@Url.Action("Salaries")" class="col-2">
+    <label for="employeeId">Filter by Employee:</label>
+    <select name="employeeId" id="employeeId" class="form-control">
+        <option value="">All Empoyees</option>
+        @foreach (var employee in ViewBag.Employees as SelectList)
+        {
+            <option value="@employee.Value">
+                @employee.Text
+            </option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-primary mt-2">Filter</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Basic Salary</th>
+                <th>Department Incentive</th>
+                <th>Seniority Incentive</th>
+                <th>Absence Days</th>
+                <th>Penalty Percentage</th>
+                <th>IsBonus</th>
+                <th>Net Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var report in Model)
+            {
+                <tr>
+                    <td>@report.EmployeeName</td>
+                    <td>@report.Month</td>
+                    <td>@report.Year</td>
+                    <td>@report.BasicSalary</td>
+                    <td>@report.DepartmentIncentive</td>
+                    <td>@report.SeniorityIncentive</td>
+                    <td>@report.AbsenceDays</td>
+                    <td>@report.PenaltyPercentage</td>
+                    <td>@report.IsBonus</td>
+                    <td>@report.NetSalary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No salary records available for this employee.</p>
+}

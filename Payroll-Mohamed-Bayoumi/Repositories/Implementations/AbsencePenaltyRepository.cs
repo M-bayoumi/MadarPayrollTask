@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Payroll_Mohamed_Bayoumi.Context;
+using Payroll_Mohamed_Bayoumi.Enums;
 using Payroll_Mohamed_Bayoumi.Models;
 using Payroll_Mohamed_Bayoumi.Repositories.Abstractions;
 
@@ -26,6 +27,12 @@ public class AbsencePenaltyRepository : IAbsencePenaltyRepository
         return await _context
             .AbsencePenalties
             .FindAsync(id);
+    }
+    public async Task<AbsencePenalty?> GetByAbsenceDaysAsync(AbsenceDays absenceDays)
+    {
+        return await _context
+            .AbsencePenalties
+            .FirstOrDefaultAsync(x => x.AbsenceDays == absenceDays);
     }
 
     public async Task AddAsync(AbsencePenalty absencePenalty)

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Payroll_Mohamed_Bayoumi.Models.AttendanceRecord>
+
+@{
+    ViewData["Title"] = "Attendance Report";
+}
+
+<h2>Attendance Report</h2>
+
+<form method="get" action="@Url.Action("Attendance")" class="col-2">
+    <label for="employeeId">Filter by Employee:</label>
+    <select name="employeeId" id="employeeId" class="form-control">
+        <option value="">All Employees</option>
+        @foreach (var employee in ViewBag.Employees as SelectList)
+        {
+            <option value="@employee.Value">
+                @employee.Text
+            </option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-primary mt-2">Filter</button>
+</form>
+
+<table class="table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Year</th>
+            <th>Month</th>
+            <th>AbsenceDays</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var attendance in Model)
+        {
+            <tr>
+                <td>@attendance.Employee?.Name</td>
+                <td>@attendance.Year</td>
+                <td>@attendance.Month</td>
+                <td>@attendance.AbsenceDays</td>
+            </tr>
+        }
+    </tbody>
+</table>

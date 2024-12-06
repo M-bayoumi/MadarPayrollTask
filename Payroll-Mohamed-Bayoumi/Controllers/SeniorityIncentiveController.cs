@@ -42,7 +42,7 @@ public class SeniorityIncentiveController : Controller
     {
         if (ModelState.IsValid)
         {
-            var isYearsOfServiceExist = _unitOfWork.SeniorityIncentiveRepository.IsYearsOfServiceExist(seniorityIncentive.YearsOfService);
+            var isYearsOfServiceExist = _unitOfWork.SeniorityIncentiveRepository.IsYearsOfServiceExist(seniorityIncentive);
 
             if (isYearsOfServiceExist)
             {
@@ -85,7 +85,7 @@ public class SeniorityIncentiveController : Controller
 
         if (ModelState.IsValid)
         {
-            var isYearsOfServiceExist = _unitOfWork.SeniorityIncentiveRepository.IsYearsOfServiceExist(seniorityIncentive.YearsOfService);
+            var isYearsOfServiceExist = _unitOfWork.SeniorityIncentiveRepository.IsYearsOfServiceExist(seniorityIncentive);
 
             if (isYearsOfServiceExist)
             {
